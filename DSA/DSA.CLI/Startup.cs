@@ -1,7 +1,9 @@
 ﻿using DSA.Algorithms.Graphs;
 using DSA.Algorithms.Searching;
 using DSA.Algorithms.Sorting;
+using DSA.DataStructures.GraphRelated;
 using DSA.DataStructures.PriorityQueue;
+using DSA.DataStructures.WeightedNode;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,47 @@ namespace DSA.CLI
 
             //TestGraphTraversal();
 
-            TestPQ();
+            //TestPQ();
+
+            TestDijkstra();
+        }
+
+        private static void TestDijkstra()
+        {
+            var node1 = new Node(0);
+            var node2 = new Node(1);
+            var node3 = new Node(2);
+            var node4 = new Node(3);
+            var node5 = new Node(4);
+
+            var graph = new List<Edge>[] {
+                new List<Edge> {
+                new Edge(node2, 2),
+                new Edge(node3, 3),
+                new Edge(node4, 11)},
+
+                new List<Edge> {
+                new Edge(node1, 2),
+                new Edge(node3, 3),
+                new Edge(node5, 15)},
+
+                new List<Edge> {
+                new Edge(node1, 3),
+                new Edge(node2, 3),
+                new Edge(node4, 2),
+                new Edge(node5, 6)},
+
+                new List<Edge> {
+                new Edge(node1, 11),
+                new Edge(node3, 2),
+                new Edge(node5, 3) },
+
+                new List<Edge> {
+                new Edge(node2, 15),
+                new Edge(node3, 6),
+                new Edge(node4, 3) }
+};
+            Console.WriteLine(graph.DijkstraShortestPath(node1, node5));
         }
 
         private static void TestPQ()
@@ -27,9 +69,9 @@ namespace DSA.CLI
             var rnd = new Random();
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = rnd.Next(-100,100);
+                arr[i] = rnd.Next(-100, 100);
             }
-            Console.WriteLine(string.Join(", " , arr));
+            Console.WriteLine(string.Join(", ", arr));
 
             var pq = new PriorityQueue<int>((a, b) => a < b);
 
@@ -43,8 +85,6 @@ namespace DSA.CLI
             {
                 Console.Write(" {0} ", pq.Dequeue());
             }
-
-
         }
 
         private static void TestGraphTraversal()

@@ -42,10 +42,16 @@
   <ItemGroup>
     <Compile Include="Graphs\BfsTraversal.cs" />
     <Compile Include="Graphs\DfsTraversal.cs" />
+    <Compile Include="Graphs\Dijkstra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Searching\BinarySearch.cs" />
     <Compile Include="Sorting\MergeSort.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DSA.DataStructures\DSA.DataStructures.csproj">
+      <Project>{CD06F5BF-AB8C-460F-B1C0-8DE95395126B}</Project>
+      <Name>DSA.DataStructures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
