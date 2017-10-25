@@ -46,8 +46,6 @@
     <Compile Include="Searching\BinarySearch.cs" />
     <Compile Include="Sorting\MergeSort.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Trees\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

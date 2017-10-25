@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1384F04-1E45-4573-A753-61DEF9D6DC43}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>DSA.CLI</RootNamespace>
-    <AssemblyName>DSA.CLI</AssemblyName>
+    <ProjectGuid>{CD06F5BF-AB8C-460F-B1C0-8DE95395126B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DSA.DataStructures</RootNamespace>
+    <AssemblyName>DSA.DataStructures</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,21 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Startup.cs" />
+    <Compile Include="PriorityQueue\PriorityQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DSA.Algorithms\DSA.Algorithms.csproj">
-      <Project>{DBB1EB0C-EDC5-4B11-BA5A-3AF6505C2DC4}</Project>
-      <Name>DSA.Algorithms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DSA.DataStructures\DSA.DataStructures.csproj">
-      <Project>{CD06F5BF-AB8C-460F-B1C0-8DE95395126B}</Project>
-      <Name>DSA.DataStructures</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

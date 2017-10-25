@@ -1,6 +1,7 @@
 ﻿using DSA.Algorithms.Graphs;
 using DSA.Algorithms.Searching;
 using DSA.Algorithms.Sorting;
+using DSA.DataStructures.PriorityQueue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,35 @@ namespace DSA.CLI
         {
             //TestMergeSortAndBinarySearch();
 
-            TestGraphTraversal();
+            //TestGraphTraversal();
+
+            TestPQ();
+        }
+
+        private static void TestPQ()
+        {
+            var arr = new int[10];
+            var rnd = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rnd.Next(-100,100);
+            }
+            Console.WriteLine(string.Join(", " , arr));
+
+            var pq = new PriorityQueue<int>((a, b) => a < b);
+
+            foreach (var item in arr)
+            {
+                pq.Enqueue(item);
+                Console.Write(" {0} ", pq.Top);
+            }
+            Console.WriteLine();
+            foreach (var item in arr)
+            {
+                Console.Write(" {0} ", pq.Dequeue());
+            }
+
+
         }
 
         private static void TestGraphTraversal()
@@ -32,10 +61,10 @@ namespace DSA.CLI
             var used = new HashSet<int>();
             graph.Bfs(0);
             Console.WriteLine();
-            graph.DfsRecursive(0,used);
+            graph.DfsRecursive(0, used);
             Console.WriteLine();
             used.Clear();
-            graph.DfsWithStack(0,used);
+            graph.DfsWithStack(0, used);
             Console.WriteLine();
         }
 
