@@ -24,7 +24,6 @@ namespace DSA.Algorithms.Graphs
 {
     public static class Dijkstra
     {
-        const int Infinity = int.MaxValue;
         public static double DijkstraShortestPath(this List<Edge>[] graph, Node source, Node destination)
         {
             var pq = new PriorityQueue<Node>((a,b) => a.DijkstraDistance.CompareTo(b.DijkstraDistance) < 0);

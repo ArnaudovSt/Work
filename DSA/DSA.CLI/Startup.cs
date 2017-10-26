@@ -1,6 +1,7 @@
 ﻿using DSA.Algorithms.Graphs;
 using DSA.Algorithms.Searching;
 using DSA.Algorithms.Sorting;
+using DSA.DataStructures.AvlTree;
 using DSA.DataStructures.GraphRelated;
 using DSA.DataStructures.PriorityQueue;
 using DSA.DataStructures.WeightedNode;
@@ -22,7 +23,23 @@ namespace DSA.CLI
 
             //TestPQ();
 
-            TestDijkstra();
+            //TestDijkstra();
+
+            TestAvlTree();
+        }
+
+        private static void TestAvlTree()
+        {
+            var tree = new AvlTree<int>();
+            var rnd = new Random();
+            for (int i = 0; i < 128; i++)
+            {
+                var number = rnd.Next(-100, 100);
+                tree.Add(number);
+                Console.WriteLine("number: {0}, tree size: {1}, tree height: {2}", number, tree.Count, tree.Height);
+            }
+
+            tree.GetOrdered();
         }
 
         private static void TestDijkstra()

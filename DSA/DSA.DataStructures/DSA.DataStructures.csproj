@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvlTree\AvlNode.cs" />
+    <Compile Include="AvlTree\AvlTree.cs" />
     <Compile Include="GraphRelated\Node.cs" />
     <Compile Include="PriorityQueue\PriorityQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
