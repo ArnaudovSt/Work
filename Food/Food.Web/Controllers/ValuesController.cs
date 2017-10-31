@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Food.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,9 @@ namespace Food.Web.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var test = new FoodDbContext();
+
+            return new string[] { "value1", "value2", test.Foods.FirstOrDefault().Test };
         }
 
         // GET api/values/5
