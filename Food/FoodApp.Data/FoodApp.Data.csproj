@@ -50,9 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextWrapper\ContextWrapper.cs" />
+    <Compile Include="ContextWrapper\IContextWrapper.cs" />
     <Compile Include="FoodDbContext.cs" />
     <Compile Include="Migrations\MigrationsConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
