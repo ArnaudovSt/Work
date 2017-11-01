@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using FoodApp.Data.Models.Contracts;
+using FoodApp.Services.Common.TimeProvider;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -55,7 +56,7 @@ namespace FoodApp.Data.ContextWrapper
         public void Delete(T entity)
         {
             entity.IsDeleted = true;
-            entity.DeletedOn = DateTime.Now;
+            entity.DeletedOn = TimeProvider.Current.Now;
 
             var entry = this.dbContext.Entry(entity);
             entry.State = EntityState.Modified;

@@ -1,4 +1,5 @@
 using FoodApp.Data.Models;
+using FoodApp.Services.Common.TimeProvider;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -107,7 +108,7 @@ namespace FoodApp.Data.Migrations
                         anotherMealItem,
                         yetAnotherMealItem
                     },
-                    Date = DateTime.Now
+                    Date = TimeProvider.Current.Now
                 };
 
                 var anotherMeal = new Meal()
@@ -117,7 +118,7 @@ namespace FoodApp.Data.Migrations
                         anotherMealItem,
                         yetAnotherMealItem
                     },
-                    Date = DateTime.Now.Date.AddDays(-1)
+                    Date = TimeProvider.Current.Now.Date.AddDays(-1)
                 };
 
                 var yetAnotherMeal = new Meal()
@@ -126,7 +127,7 @@ namespace FoodApp.Data.Migrations
                     {
                         yetAnotherMealItem
                     },
-                    Date = DateTime.Now.Date.AddDays(-2)
+                    Date = TimeProvider.Current.Now.Date.AddDays(-2)
                 };
 
                 context.Meals.Add(meal);

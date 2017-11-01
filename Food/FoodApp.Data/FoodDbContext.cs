@@ -1,5 +1,6 @@
 ﻿using FoodApp.Data.Models;
 using FoodApp.Data.Models.Contracts;
+using FoodApp.Services.Common.TimeProvider;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -39,11 +40,11 @@ namespace FoodApp.Data
                 var entity = (IAuditable)entry.Entity;
                 if (entry.State == EntityState.Added && entity.CreatedOn == null)
                 {
-                    entity.CreatedOn = DateTime.Now;
+                    entity.CreatedOn = TimeProvider.Current.Now;
                 }
                 else
                 {
-                    entity.ModifiedOn = DateTime.Now;
+                    entity.ModifiedOn = TimeProvider.Current.Now;
                 }
             }
         }
