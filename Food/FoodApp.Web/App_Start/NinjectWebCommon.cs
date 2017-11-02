@@ -18,6 +18,10 @@ namespace FoodApp.Web.App_Start
     using FoodApp.Data.ContextWrapper;
     using FoodApp.Data.UnitOfWork;
     using Ninject.Web.Common.WebHost;
+    using Ninject.Web.Mvc.FilterBindingSyntax;
+    using FoodApp.Web.Infrastructure;
+    using System.Web.Mvc;
+    using FoodApp.Web.Infrastructure.Attributes;
 
     public static class NinjectWebCommon 
     {
@@ -89,6 +93,8 @@ namespace FoodApp.Web.App_Start
             kernel.Bind<DbContext>().To<FoodDbContext>().InRequestScope();
             kernel.Bind(typeof(IContextWrapper<>)).To(typeof(ContextWrapper<>)).InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+
+            kernel.BindFilter<SaveChangesFilter>(FilterScope.Action, 0).WhenActionMethodHas<SaveChangesAttribute>();
         }        
     }
 }
