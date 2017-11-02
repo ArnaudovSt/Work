@@ -1,8 +1,11 @@
-﻿using Bytes2you.Validation;
+﻿using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
 using FoodApp.Data;
 using FoodApp.Services.Data;
+using FoodApp.Web.ResponseModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,9 +23,15 @@ namespace FoodApp.Web.Controllers
             this.foodService = foodService;
         }
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<FoodMapperTest> Get()
         {
-            return this.foodService.Test().Select(f => f.Description).ToArray();
+            var test = this.foodService.Test();
+
+            var test1 = test
+                .ProjectTo<FoodMapperTest>()
+                .ToArray();
+
+            return test1;
         }
 
         // GET api/values/5

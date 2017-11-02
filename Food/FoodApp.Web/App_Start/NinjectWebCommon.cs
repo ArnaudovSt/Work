@@ -22,6 +22,8 @@ namespace FoodApp.Web.App_Start
     using FoodApp.Web.Infrastructure;
     using System.Web.Mvc;
     using FoodApp.Web.Infrastructure.Attributes;
+    using AutoMapper;
+    using System.Reflection;
 
     public static class NinjectWebCommon 
     {
@@ -87,14 +89,23 @@ namespace FoodApp.Web.App_Start
                     .BindDefaultInterface();
             });
 
+            // Providers
             kernel.Bind<TimeProvider>().ToSelf().InSingletonScope();
             kernel.Bind<DefaultTimeProvider>().ToSelf().InSingletonScope();
 
+            // Data
             kernel.Bind<DbContext>().To<FoodDbContext>().InRequestScope();
             kernel.Bind(typeof(IContextWrapper<>)).To(typeof(ContextWrapper<>)).InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
 
+            // Filters
             kernel.BindFilter<SaveChangesFilter>(FilterScope.Action, 0).WhenActionMethodHas<SaveChangesAttribute>();
+
+            // Mapper
+            kernel.Bind<IMapper>().To<Mapper>().InSingletonScope();
+            var mapperConfig = kernel.Get<AutoMapperConfig>();
+            mapperConfig.Execute(Assembly.GetExecutingAssembly());
+            kernel.Bind<IConfigurationProvider>().ToConstant(Mapper.Configuration).InSingletonScope();
         }        
     }
 }
