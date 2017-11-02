@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,10 @@ namespace FoodApp.Data.Models
         {
             this.categories = new HashSet<Category>();
         }
+
+        [Required]
+        [StringLength(128, MinimumLength = 1)]
+        public string Name { get; set; }
 
         [DataType(DataType.MultilineText)]
         [StringLength(2048, MinimumLength = 128)]

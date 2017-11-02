@@ -20,7 +20,7 @@ namespace FoodApp.Services.Data
             this.foodSet = foodSet;
         }
 
-        public IQueryable<Food> Test()
+        public IQueryable<Food> GetAll()
         {
             return this.foodSet.All;
         }

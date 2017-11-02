@@ -3,6 +3,7 @@ using Bytes2you.Validation;
 using FoodApp.Data;
 using FoodApp.Services.Data;
 using FoodApp.Web.ResponseModels;
+using FoodApp.Web.ResponseModels.FoodResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,11 +14,11 @@ using System.Web.Http;
 
 namespace FoodApp.Web.Controllers
 {
-    public class ValuesController : ApiController
+    public class FoodsController : ApiController
     {
         private readonly IFoodService foodService;
 
-        public ValuesController(IFoodService foodService)
+        public FoodsController(IFoodService foodService)
         {
             Guard.WhenArgument(foodService, "Food controller food service").IsNull().Throw();
             this.foodService = foodService;
@@ -25,7 +26,7 @@ namespace FoodApp.Web.Controllers
         // GET api/values
         public IEnumerable<FoodMapperTest> Get()
         {
-            var test = this.foodService.Test();
+            var test = this.foodService.GetAll();
 
             var test1 = test
                 .ProjectTo<FoodMapperTest>()

@@ -39,6 +39,7 @@ namespace FoodApp.Data.Migrations
 
                 var food = new Food()
                 {
+                    Name = "food",
                     CaloriesPerGram = 1,
                     CarbohydratesPerGram = 1,
                     CholestrolPerGram = 1,
@@ -59,6 +60,7 @@ namespace FoodApp.Data.Migrations
 
                 var anotherFood = new Food()
                 {
+                    Name = "anoherFood",
                     CaloriesPerGram = 0,
                     CarbohydratesPerGram = 0,
                     ProteinPerGram = 0,
@@ -73,6 +75,7 @@ namespace FoodApp.Data.Migrations
 
                 var yetAnotherFood = new Food()
                 {
+                    Name = "yetAnotherFood",
                     CaloriesPerGram = 0.5,
                     CarbohydratesPerGram = 0.5,
                     ProteinPerGram = 0.5,
@@ -104,9 +107,7 @@ namespace FoodApp.Data.Migrations
                 {
                     MealItems = new HashSet<MealItem>()
                     {
-                        mealItem,
-                        anotherMealItem,
-                        yetAnotherMealItem
+                        mealItem
                     },
                     Date = TimeProvider.Current.Now
                 };
@@ -115,8 +116,7 @@ namespace FoodApp.Data.Migrations
                 {
                     MealItems = new HashSet<MealItem>()
                     {
-                        anotherMealItem,
-                        yetAnotherMealItem
+                        anotherMealItem
                     },
                     Date = TimeProvider.Current.Now.Date.AddDays(-1)
                 };

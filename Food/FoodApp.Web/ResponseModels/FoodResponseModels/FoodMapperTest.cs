@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 
-namespace FoodApp.Web.ResponseModels
+namespace FoodApp.Web.ResponseModels.FoodResponseModels
 {
     public class FoodMapperTest : IMapFrom<Food>, IHaveCustomMappings
     {

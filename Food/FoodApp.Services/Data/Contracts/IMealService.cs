@@ -3,8 +3,8 @@ using FoodApp.Data.Models;
 
 namespace FoodApp.Services.Data
 {
-    public interface IFoodService
+    public interface IMealService
     {
-        IQueryable<Food> GetAll();
+        IQueryable<Meal> GetAll();
     }
 }
