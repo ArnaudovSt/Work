@@ -43,12 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\TimeProvider\DefaultTimeProvider.cs" />
-    <Compile Include="Common\TimeProvider\TimeProvider.cs" />
+    <Compile Include="Data\FoodService.cs" />
+    <Compile Include="Data\Contracts\IFoodService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FoodApp.Data.Models\FoodApp.Data.Models.csproj">
+      <Project>{6D19EEE7-B2C9-4C29-B5AB-36980E5F4963}</Project>
+      <Name>FoodApp.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodApp.Data\FoodApp.Data.csproj">
+      <Project>{F9F4100A-347B-485E-8D04-90CA0B435D0A}</Project>
+      <Name>FoodApp.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

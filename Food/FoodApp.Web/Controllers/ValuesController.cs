@@ -1,4 +1,6 @@
-﻿using FoodApp.Data;
+﻿using Bytes2you.Validation;
+using FoodApp.Data;
+using FoodApp.Services.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,17 @@ namespace FoodApp.Web.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly IFoodService foodService;
+
+        public ValuesController(IFoodService foodService)
+        {
+            Guard.WhenArgument(foodService, "Food controller food service").IsNull().Throw();
+            this.foodService = foodService;
+        }
         // GET api/values
         public IEnumerable<string> Get()
         {
-            var test = new FoodDbContext();
-
-            return new string[] { "value1", "value2", test.Foods.FirstOrDefault(f => f.Description != null).Description };
+            return this.foodService.Test().Select(f => f.Description).ToArray();
         }
 
         // GET api/values/5
