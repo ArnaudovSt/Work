@@ -286,3 +286,12 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+.vscode
+build
+node_modules
+reports
+soljson.js
+npm-debug.log*
+babelify-src
+package-lock.json
